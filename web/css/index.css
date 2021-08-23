@@ -1,0 +1,23 @@
+body{
+	background-color: #4C8C1C;
+}
+/* 在form外层，增加一个div，id="total" */
+#total{
+	margin: auto;
+	background-image: url(../image/login_zh.jpg);
+	width: 990px;/* 设置div的宽度和高度 */
+	height: 680px;
+}
+form{
+	position: relative;
+	top: 340px;
+}
+/* 在<table>上增加一个id属性，id='tab' */
+#tab {
+	text-align: center;
+	margin: auto;
+}
+#tab input{
+	border-radius: 4px;
+	width: 150px;
+}
