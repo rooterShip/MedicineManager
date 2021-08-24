@@ -11,4 +11,13 @@
         <servlet-name>manager</servlet-name>
         <url-pattern>*.manager</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>category</servlet-name>
+        <servlet-class>category.servlet.CategoryServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>category</servlet-name>
+        <url-pattern>*.category</url-pattern>
+    </servlet-mapping>
 </web-app>

@@ -22,7 +22,7 @@
             <a href="./Category/Category_toAdd.html" target="show">添加类别</a>
         </dd>
         <dd>
-            <a href="./Category/Category_selectByPage.html" target="show">查看类别</a>
+            <a href="${pageContext.request.contextPath}/selectByPage.category?pageNo=1" target="show">查看类别</a>
         </dd>
     </dl>
 </div>

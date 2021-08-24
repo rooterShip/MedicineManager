@@ -31,7 +31,7 @@
         <iframe src="${pageContext.request.contextPath}/menu.jsp"></iframe>
     </div>
     <div id="bodyright">
-        <iframe src="./Category/Category_selectByPage.html" name="show"></iframe>
+        <iframe src="${pageContext.request.contextPath}/selectByPage.category?pageNo=1" name="show"></iframe>
     </div>
 </div>
 <div id="footer">版权所有：南京市艾瑞职业培训学校 ICP备案：苏ICP备15022503号-1</div>
