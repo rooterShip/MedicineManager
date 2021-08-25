@@ -30,11 +30,49 @@ public class CategoryServlet extends HttpServlet {
                 //分页查询
                 selectByPage(req,resp);
                 break;
+            case "/toadd.category"://跳转到编辑页面
+                toAdd(req,resp);
+                break;
+            case "/addorupdate.category"://新增或修改
+                addorupdate(req,resp);
+                break;
             default:
                 break;
         }
     }
 
+    /*新增或修改*/
+    private void addorupdate(HttpServletRequest req,HttpServletResponse resp) throws ServletException,IOException{
+        String id = req.getParameter("id");
+        String cname = req.getParameter("cname");
+        String description = req.getParameter("description");
+        Category category = new Category(id,cname,null,description);
+        if(id!=null&&!"".equals(id)){
+            categoryService.updateOne(category);
+        }
+        else{
+            categoryService.addOne(category);//新增操作
+        }
+        resp.sendRedirect(req.getContextPath()+"/selectByPage.category?pageNo=1");
+    }
+
+
+    /*跳转到编辑页面*/
+    private void toAdd(HttpServletRequest req,HttpServletResponse resp) throws ServletException,IOException{
+        String id = req.getParameter("id");
+        if(id!=null&&!"".equals(id)){
+            String cname = req.getParameter("cname");
+            String description = req.getParameter("description");
+            Category category = new Category(id,cname,null,description);
+            req.setAttribute("category",category);
+
+        }
+        req.getRequestDispatcher("/Category/Category_toAdd.jsp").forward(req,resp);
+
+    }
+
+
+    /*分页查询*/
     private void selectByPage(HttpServletRequest req,HttpServletResponse resp) throws ServletException,IOException{
         PageModel pageModel = new PageModel();
         int pageNo = Integer.parseInt(req.getParameter("pageNo"));

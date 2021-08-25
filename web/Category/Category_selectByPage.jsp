@@ -58,7 +58,7 @@
             <td><%=c.getCname()%></td>
             <td><%=c.getCreatetime()%></td>
             <td><%=c.getDescription()%></td>
-            <td><a href="">编辑</a></td>
+            <td><a href="${pageContext.request.contextPath}/toadd.category?id=<%=c.getId()%>&cname=<%=c.getCname()%>&description=<%=c.getDescription()%>">编辑</a></td>
             <td><a href="">删除</a></td>
         </tr>
         <%

@@ -8,7 +8,7 @@ import java.util.Map;
 import  java.util.List;
 
 /**
- * @author rooter
+ * @author Rooter
  *
  */
 
@@ -65,7 +65,7 @@ public class JdbcUtil {
     }
 
     //统一的增删改方法
-    public static int UpdateBysql(String sql) {
+    public static int updateBysql(String sql) {
         int updatecount = 0;
 
         try {

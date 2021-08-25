@@ -19,7 +19,7 @@
     <dl>
         <dt onclick="menu(this.parentNode)">类别管理</dt>
         <dd>
-            <a href="./Category/Category_toAdd.html" target="show">添加类别</a>
+            <a href="${pageContext.request.contextPath}/toadd.category" target="show">添加类别</a>
         </dd>
         <dd>
             <a href="${pageContext.request.contextPath}/selectByPage.category?pageNo=1" target="show">查看类别</a>

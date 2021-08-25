@@ -42,4 +42,21 @@ public class CategoryDaoImpl implements CategoryDao{
         return categories;
     }
 
+    @Override
+    public int addOne(Category category) {
+        String cname = category.getCname();
+        String description = category.getDescription();
+        String sql = "insert into category values(medicineseq.nextval,'"+cname+"',sysdate,'"+description+"')";
+        return JdbcUtil.updateBysql(sql);
+    }
+
+    @Override
+    public int updateOne(Category category) {
+        String id = category.getId();
+        String cname = category.getCname();
+        String description = category.getDescription();
+        String sql = "update category set cname='"+cname+"',description='"+description+"' where id='"+id+"'";
+        return JdbcUtil.updateBysql(sql);
+    }
+
 }
