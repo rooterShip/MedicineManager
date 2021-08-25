@@ -29,4 +29,15 @@ public class CategoryServiceImpl implements CategoryService {
     public int updateOne(Category category) {
         return categoryDao.updateOne(category);
     }
+
+    @Override
+    public boolean iscontaintDrug(String categoryId) {
+        int count = categoryDao.queryDrugByCategoryId(categoryId);
+        return count > 0;
+    }
+
+    @Override
+    public int deleteByCategoryId(String categoryId) {
+        return categoryDao.deleteByCategoryId(categoryId);
+    }
 }

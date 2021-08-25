@@ -14,5 +14,7 @@ public interface CategoryDao {
     //修改一条记录
     public int updateOne(Category category);
     //删除一条记录
-    //根据用户名和密码查询
+    public int deleteByCategoryId(String categoryId);
+    //根据类别ID查询是否有药品与之关联
+    public int queryDrugByCategoryId(String categoryId);
 }

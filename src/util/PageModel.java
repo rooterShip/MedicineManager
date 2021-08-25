@@ -3,7 +3,7 @@ package util;
 import java.util.List;
 
 public class PageModel {
-    private int pageSize = 2;//每页条数
+    private int pageSize = 4;//每页条数
     private int recordCount;//总记录数
     private int pageNo;//当前页数
     private int pageCount;//总页数

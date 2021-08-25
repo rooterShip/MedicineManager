@@ -36,10 +36,28 @@ public class CategoryServlet extends HttpServlet {
             case "/addorupdate.category"://新增或修改
                 addorupdate(req,resp);
                 break;
+            case "/delete.category":
+                /*删除一条记录*/
+                delete(req,resp);
+                break;
             default:
                 break;
         }
     }
+    private void delete(HttpServletRequest req,HttpServletResponse resp) throws ServletException,IOException{
+        //判断能不能删除
+
+        String categoryId =  req.getParameter("id");
+        if(categoryService.iscontaintDrug(categoryId)){
+            req.setAttribute("messageDelete","对不起，该类别还包含药品，请先删除对应的药品");
+
+        }else {
+            categoryService.deleteByCategoryId(categoryId);
+
+        }
+        req.getRequestDispatcher("/selectByPage.category?pageNo=1").forward(req,resp);
+    }
+
 
     /*新增或修改*/
     private void addorupdate(HttpServletRequest req,HttpServletResponse resp) throws ServletException,IOException{

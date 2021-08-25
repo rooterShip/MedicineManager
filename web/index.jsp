@@ -7,6 +7,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
+<head>
 <meta charset="utf-8">
 <title>医药管理系统</title>
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/index.css"/>

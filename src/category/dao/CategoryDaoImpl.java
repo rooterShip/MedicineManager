@@ -4,6 +4,7 @@ import category.model.Category;
 import util.JdbcUtil;
 import util.PageModel;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -57,6 +58,21 @@ public class CategoryDaoImpl implements CategoryDao{
         String description = category.getDescription();
         String sql = "update category set cname='"+cname+"',description='"+description+"' where id='"+id+"'";
         return JdbcUtil.updateBysql(sql);
+    }
+
+    @Override
+    public int deleteByCategoryId(String categoryId) {
+        String sql = "delete from category c where c.id = '"+categoryId+"'";
+        return JdbcUtil.updateBysql(sql);
+    }
+
+    @Override
+    public int queryDrugByCategoryId(String categoryId) {
+        String sql = "select count(*) cou from drug d where d.categoryid='"+categoryId+"'";
+        List<Map<String,Object>> list = JdbcUtil.queryBysql(sql);
+        Map<String,Object> map = list.get(0);
+        Integer count = Integer.valueOf(String.valueOf((BigDecimal) map.get("COU")));
+        return count;
     }
 
 }

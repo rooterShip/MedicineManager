@@ -7,7 +7,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
-head>
+<head>
 <title>编辑药品类别</title>
 <link rel="stylesheet"type="text/css" href="${pageContext.request.contextPath}/css/query.css"/>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-3.2.1.js"></script>
@@ -23,7 +23,7 @@ head>
 <form action="${pageContext.request.contextPath}/addorupdate.category" method="post">
     <table id="tab">
         <tr>
-            <td align="right" style="width: 40%;">类别名称:</td>
+            <td align="right" style="width: 40%;">类别ID:</td>
             <td align="left"><input type="text" id="id" name="id" readonly="readonly" placeholder="无需填写自动生成" value="${requestScope.category.id}"/></td>
         </tr>
 

@@ -16,4 +16,10 @@ public interface CategoryService {
 
     /*修改一条记录*/
     public int updateOne(Category category);
+
+    /*根据类别ID查询是否有药品与之关联*/
+    public boolean iscontaintDrug(String categoryId);
+
+    /*删除一条记录*/
+    public int deleteByCategoryId(String categoryId);
 }

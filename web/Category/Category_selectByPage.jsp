@@ -15,6 +15,7 @@
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/query.css" />
     <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-3.2.1.js"></script>
     <script type="text/javascript">
+        /*控制上一页和下一页是否可以点*/
         $(function () {
             var pageNo=${requestScope.pageModel.pageNo};
             var pageCount=${requestScope.pageModel.pageCount};
@@ -24,6 +25,15 @@
             if (pageNo==pageCount){
                 $("#nextpage ").prop("href","#");
             }
+        /*控制删除按钮在点击的时候，弹出确认*/
+        $(".delete").click(function (){
+            var text = $(this).parent().parent().find("td").eq(1).text();
+            text = $.trim(text);
+            if(!confirm("确定删除"+text+"的信息吗？")){
+                return false;
+            }
+
+        })
         })
     </script>
 </head>
@@ -34,6 +44,7 @@
 %>
 <div id="top">当前位置： 类别管理--查看类别</div>
 <div id="contexttop">
+    <span style="color: red;text-align:center">${requestScope.messageDelete}</span>
     <table id="tab" border="1">
         <tr>
             <td colspan="6" height="50">
@@ -59,7 +70,7 @@
             <td><%=c.getCreatetime()%></td>
             <td><%=c.getDescription()%></td>
             <td><a href="${pageContext.request.contextPath}/toadd.category?id=<%=c.getId()%>&cname=<%=c.getCname()%>&description=<%=c.getDescription()%>">编辑</a></td>
-            <td><a href="">删除</a></td>
+            <td><a href="${pageContext.request.contextPath}/delete.category?id=<%=c.getId()%>" class="delete">删除</a></td>
         </tr>
         <%
             }
